@@ -5,13 +5,13 @@ test('mobil tiap 1 jam 5000', () => {
   expect(
     parkir(
       'mobil',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-01 13:00:00')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:00:00')
     )
   ).toEqual({
     jenis: 'mobil',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-01 13:00:00'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:00:00'),
     total: 5000,
   });
 });
@@ -21,13 +21,13 @@ test('mobil tiap lebih dari 1 menit dibulatkan ke atas', () => {
   expect(
     parkir(
       'mobil',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-01 13:01:02')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:01:02')
     )
   ).toEqual({
     jenis: 'mobil',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-01 13:01:02'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:01:02'),
     total: 10000,
   });
 });
@@ -37,13 +37,13 @@ test('mobil kalau 1 jam lebih kurang dari 1 menit tidak dibulatkan', () => {
   expect(
     parkir(
       'mobil',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-01 13:00:59')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:00:59')
     )
   ).toEqual({
     jenis: 'mobil',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-01 13:00:59'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:00:59'),
     total: 5000,
   });
 });
@@ -53,13 +53,13 @@ test('mobil tiap lebih dari 1 hari tambah 80000', () => {
   expect(
     parkir(
       'mobil',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-02 13:00:00')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-02 13:00:00')
     )
   ).toEqual({
     jenis: 'mobil',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-02 13:00:00'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-02 13:00:00'),
     total: 85000,
   });
 });
@@ -69,13 +69,13 @@ test('motor tiap 1 jam 2000', () => {
   expect(
     parkir(
       'motor',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-01 13:00:00')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:00:00')
     )
   ).toEqual({
     jenis: 'motor',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-01 13:00:00'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:00:00'),
     total: 2000,
   });
 });
@@ -85,13 +85,13 @@ test('motor tiap lebih dari 1 jam 1 menit dibulatkan ke atas', () => {
   expect(
     parkir(
       'motor',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-01 13:01:02')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:01:02')
     )
   ).toEqual({
     jenis: 'motor',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-01 13:01:02'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:01:02'),
     total: 4000,
   });
 });
@@ -101,13 +101,13 @@ test('kalau 1 jam lebih kurang dari 1 menit tidak dibulatkan', () => {
   expect(
     parkir(
       'motor',
-      new Date('2018-01-01 12:00:00'),
-      new Date('2018-01-01 13:00:59')
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:00:59')
     )
   ).toEqual({
     jenis: 'motor',
-    waktu_masuk: new Date('2018-01-01 12:00:00'),
-    waktu_keluar: new Date('2018-01-01 13:00:59'),
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:00:59'),
     total: 2000,
   });
 });
