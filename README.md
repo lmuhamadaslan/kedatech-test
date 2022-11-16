@@ -10,7 +10,7 @@
 7. motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
 8. motor parkir lebih dari 1 hari ditambah 40000
 
-## Coding Unit Testing (file parkir.test.hs)
+## Coding Unit Testing (file parkir.test.js)
 ```
 const parkir = require('./parkir.js');
 
