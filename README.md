@@ -1,14 +1,16 @@
 # Keda Tech Backend (Node JS) test
 
-## skenari0 test 
+## skenario test 
 1. mobil parkir 1 jam 5000
-2. mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas
-3. mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
-4. mobil parkir lebih dari 1 hari ditambah 80000
-5. motor parkir 1 jam 2000
-6. motor parkir lebih dari 1 jam 1 menit dibulatkan ke atas
-7. motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
-8. motor parkir lebih dari 1 hari ditambah 40000
+2. mobil parkir 1 jam 1 menit 5000
+3. mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas
+4. mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
+5. mobil parkir lebih dari 1 hari ditambah 80000
+6. motor parkir 1 jam 2000
+7. mobil parkir 1 jam 1 menit 2000
+8. motor parkir lebih dari 1 jam 1 menit dibulatkan ke atas
+9. motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
+10. motor parkir lebih dari 1 hari ditambah 40000
 
 ## Coding Unit Testing (file parkir.test.js)
 ```
@@ -26,11 +28,27 @@ test('mobil parkir 1 jam 5000', () => {
     jenis: 'mobil',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-01 13:00:00'),
-    total: 5000,
+    total_harga: 'Rp.5000',
   });
 });
 
-// test case 2 - mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas
+// test case 2 - mobil parkir 1 jam 1 menit 5000
+test('mobil parkir 1 jam 1 menit 5000', () => {
+  expect(
+    parkir(
+      'mobil',
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:01:00')
+    )
+  ).toEqual({
+    jenis: 'mobil',
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:01:00'),
+    total_harga: 'Rp.5000',
+  });
+})
+
+// test case 3 - mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas
 test('mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas', () => {
   expect(
     parkir(
@@ -42,11 +60,11 @@ test('mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas', () => {
     jenis: 'mobil',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-01 13:01:02'),
-    total: 10000,
+    total_harga: 'Rp.10000',
   });
 });
 
-// test case 3 - mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
+// test case 4 - mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
 test('mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan', () => {
   expect(
     parkir(
@@ -58,11 +76,11 @@ test('mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan', () => {
     jenis: 'mobil',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-01 13:00:59'),
-    total: 5000,
+    total_harga: 'Rp.5000',
   });
 });
 
-// test case 4 - mobil parkir lebih dari 1 hari tambah 80000
+// test case 5 - mobil parkir lebih dari 1 hari tambah 80000
 test('mobil parkir lebih dari 1 hari ditambah 80000', () => {
   expect(
     parkir(
@@ -74,11 +92,11 @@ test('mobil parkir lebih dari 1 hari ditambah 80000', () => {
     jenis: 'mobil',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-02 13:00:00'),
-    total: 85000,
+    total_harga: 'Rp.85000',
   });
 });
 
-// test case 5 - motor parkir 1 jam 2000
+// test case 6 - motor parkir 1 jam 2000
 test('motor parkir 1 jam 2000', () => {
   expect(
     parkir(
@@ -90,11 +108,27 @@ test('motor parkir 1 jam 2000', () => {
     jenis: 'motor',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-01 13:00:00'),
-    total: 2000,
+    total_harga: 'Rp.2000',
   });
 });
 
-// test case 6 - motor parkir lebih dari 1 jam 1 menit dibulatkan ke atas
+// test case 7 - motor parkir 1 jam 1 menit 2000
+test('motor parkir 1 jam 1 menit 2000', () => {
+  expect(
+    parkir(
+      'motor',
+      new Date('2022-11-01 12:00:00'),
+      new Date('2022-11-01 13:01:00')
+    )
+  ).toEqual({
+    jenis: 'motor',
+    waktu_masuk: new Date('2022-11-01 12:00:00'),
+    waktu_keluar: new Date('2022-11-01 13:01:00'),
+    total_harga: 'Rp.2000',
+  });
+});
+
+// test case 8 - motor parkir lebih dari 1 jam 1 menit dibulatkan ke atas
 test('motor parkir lebih dari 1 jam 1 menit dibulatkan ke atas', () => {
   expect(
     parkir(
@@ -106,11 +140,11 @@ test('motor parkir lebih dari 1 jam 1 menit dibulatkan ke atas', () => {
     jenis: 'motor',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-01 13:01:02'),
-    total: 4000,
+    total_harga: 'Rp.4000',
   });
 });
 
-// test case 7 - motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
+// test case 9 - motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
 test('motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan', () => {
   expect(
     parkir(
@@ -122,11 +156,11 @@ test('motor parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan', () => {
     jenis: 'motor',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-01 13:00:59'),
-    total: 2000,
+    total_harga: 'Rp.2000',
   });
 });
 
-// test case 8 - motor parkir lebih dari 1 hari ditambah 40000
+// test case 10 - motor parkir lebih dari 1 hari ditambah 40000
 test('motor parkir lebih dari 1 hari ditambah 40000', () => {
   expect(
     parkir(
@@ -138,12 +172,14 @@ test('motor parkir lebih dari 1 hari ditambah 40000', () => {
     jenis: 'motor',
     waktu_masuk: new Date('2022-11-01 12:00:00'),
     waktu_keluar: new Date('2022-11-02 13:00:00'),
-    total: 42000,
+    total_harga: 'Rp.42000',
   });
 });
+
 
 ```
 
 ## Hasil Unit Testing Menggunakan Jest
-![image](https://user-images.githubusercontent.com/92351638/202193930-a9d0f7d1-025f-45e6-aad6-2d3792d629f9.png)
+![image](https://user-images.githubusercontent.com/92351638/202211774-f4d6c8d4-20f7-48ea-9c7b-31eadb671b01.png)
+
 
