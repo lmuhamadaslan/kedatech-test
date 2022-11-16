@@ -1,6 +1,6 @@
 # Keda Tech Backend (Node JS) test
 
-## skenari test 
+## skenari0 test 
 1. mobil parkir 1 jam 5000
 2. mobil parkir lebih dari 1 jam 1 menit dibulatkan ke atas
 3. mobil parkir 1 jam lebih kurang dari 1 menit tidak dibulatkan
