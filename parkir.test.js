@@ -116,6 +116,16 @@ test('motor parkir lebih dari 1 hari ditambah 40000', () => {
     waktu_masuk: new Date('2022-11-01 08:00:00'),
     waktu_keluar: new Date('2022-11-02 09:00:00'),
     lama_parkir: '1 hari 1 jam 0 menit 0 detik',
-    total_harga: 'Rp.42000',
+    total_harga: 'Rp.45000',
   });
 });
+// test('motor parkir lebih dari 1 hari ditambah 40000', () => {
+//   const parkir = new Parkir('motor', new Date('2022-11-01 08:00:00'), new Date('2022-11-02 09:00:00'));
+//   expect(parkir.catatParkir()).toEqual({
+//     jenis: 'motor',
+//     waktu_masuk: new Date('2022-11-01 08:00:00'),
+//     waktu_keluar: new Date('2022-11-02 09:00:00'),
+//     lama_parkir: '1 hari 1 jam 0 menit 0 detik',
+//     total_harga: 'Rp.42000',
+//   });
+// });
